@@ -11,18 +11,32 @@ Small full-stack project:
 
 ## Run locally
 
-Requirements: Python 3.10+
+Requirements: Python 3.10+.
+
+### Windows (PowerShell)
+
+If Python is not installed, install it once with `winget install --id Python.Python.3.12 -e`, then close and reopen the terminal. From the repository root:
 
 ```bash
-git clone <your-repo-url>
-cd profile-book-app/backend
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+cd backend
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe app.py
+```
+
+### macOS / Linux
+
+From the repository root:
+
+```bash
+cd backend
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
 python app.py
 ```
 
-Open http://localhost:5000 (Flask serves the front-end and the API from the same server).
+Open http://localhost:5000. Flask serves the front-end and the API from the same server; do not open `index.html` directly.
 
 ## API
 
@@ -51,8 +65,7 @@ curl -i -X POST http://localhost:5000/api/profiles \
 ## Deploy (Render)
 
 1. Push the repo to GitHub.
-2. On https://render.com: **New > Blueprint** (or **New > Web Service**), pick the repo. `render.yaml` already holds the settings
-   (root dir `backend`, build `pip install -r requirements.txt`, start `gunicorn app:app`).
+2. On https://render.com, choose **New > Blueprint** and select the repository. The root-level `render.yaml` installs the backend dependencies and starts Gunicorn from `backend/`, while keeping the frontend files available to Flask.
 3. Wait for the build, then open the generated `onrender.com` URL.
 
 Note: on the free tier the SQLite file is wiped on each redeploy/restart. Fine for a demo; for persistence use a Render disk (set `DB_PATH` to the mount path) or switch to Postgres.
@@ -60,7 +73,8 @@ Note: on the free tier the SQLite file is wiped on each redeploy/restart. Fine f
 ## Project structure
 
 ```
-backend/   Flask app, SQLite, requirements
-frontend/  index.html, style.css, profile.js, books.js
-render.yaml
+backend/                         Flask app, SQLite, requirements
+src/main/static/frontend/        index.html, style.css, profile.js, books.js
+src/main/static/backend/          Postman collection
+render.yaml                      Render Blueprint
 ```
