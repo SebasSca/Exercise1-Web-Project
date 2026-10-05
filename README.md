@@ -1,10 +1,10 @@
 # Exercise1-Web-Project
-# Profiles & Books
+# Profiles & Skills
 
 Small full-stack project:
 
 1. **Static front-end**: responsive HTML/CSS page with a profile form (name, surname, email, phone, skills) validated with JavaScript.
-2. **API consumer**: book search by title using the [Open Library API](https://openlibrary.org/dev/docs/api/search) (`fetch`, async/await, loading indicator, error messages).
+2. **Skill finder**: search for programming skills from a curated list and show matching results.
 3. **REST backend**: Flask + SQLite, full CRUD on `/api/profiles`, called from the front-end.
 4. **Git**: step-by-step commit history.
 5. **Cloud**: deployed on Render (free tier).
@@ -74,7 +74,7 @@ Note: on the free tier the SQLite file is wiped on each redeploy/restart. Fine f
 
 ```
 backend/                         Flask app, SQLite, requirements
-src/main/static/frontend/        index.html, style.css, profile.js, books.js
+src/main/static/frontend/        index.html, style.css, profile.js, skills.js
 src/main/static/backend/          Postman collection
 render.yaml                      Render Blueprint
 ```

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Profiles & Books</title>
+  <title>Profiles & Skills</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Profiles &amp; Books</h1></header>
+  <header><h1>Profiles &amp; Skills</h1></header>
   <main>
     <section>
       <h2>Add a profile</h2>
@@ -17,7 +17,18 @@
         <label>Surname <input id="surname" type="text"><span class="error" data-for="surname"></span></label>
         <label>Email <input id="email" type="email"><span class="error" data-for="email"></span></label>
         <label>Phone <input id="phone" type="tel"><span class="error" data-for="phone"></span></label>
-        <label>Skills (comma separated) <input id="skills" type="text"><span class="error" data-for="skills"></span></label>
+        <label>Skills (comma separated) <input id="skills" type="text" placeholder="Added skills appear here"><span class="error" data-for="skills"></span></label>
+        <div class="skill-search">
+          <div id="skill-form" role="search">
+            <label for="skill-query">Search programming skills</label>
+            <div class="skill-search-controls">
+              <input id="skill-query" type="search" placeholder="e.g. JavaScript">
+              <button id="skill-search-button" type="button">Search</button>
+            </div>
+          </div>
+          <p id="skill-status" role="status"></p>
+          <ul id="skill-results"></ul>
+        </div>
         <button type="submit" id="profile-submit">Add profile</button>
         <button type="button" id="profile-cancel" hidden>Cancel edit</button>
         <p id="profile-msg" role="status"></p>
@@ -27,19 +38,8 @@
     <section>
       <h2>Saved profiles</h2>
       <ul id="profile-list"></ul>
-    </section>
-
-    <section>
-      <h2>Book search (Open Library)</h2>
-      <form id="book-form">
-        <input id="book-title" type="text" placeholder="Book title" required>
-        <button type="submit">Search</button>
-      </form>
-      <p id="book-status" role="status"></p>
-      <ul id="book-results"></ul>
-    </section>
   </main>
   <script src="profile.js"></script>
-  <script src="books.js"></script>
+  <script src="skills.js"></script>
 </body>
 </html>
