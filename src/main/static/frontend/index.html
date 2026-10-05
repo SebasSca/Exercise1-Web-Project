@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profiles & Books</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Profiles &amp; Books</h1></header>
+  <main>
+    <section>
+      <h2>Add a profile</h2>
+      <form id="profile-form" novalidate>
+        <input type="hidden" id="profile-id">
+        <label>Name <input id="name" type="text"><span class="error" data-for="name"></span></label>
+        <label>Surname <input id="surname" type="text"><span class="error" data-for="surname"></span></label>
+        <label>Email <input id="email" type="email"><span class="error" data-for="email"></span></label>
+        <label>Phone <input id="phone" type="tel"><span class="error" data-for="phone"></span></label>
+        <label>Skills (comma separated) <input id="skills" type="text"><span class="error" data-for="skills"></span></label>
+        <button type="submit" id="profile-submit">Add profile</button>
+        <button type="button" id="profile-cancel" hidden>Cancel edit</button>
+        <p id="profile-msg" role="status"></p>
+      </form>
+    </section>
+
+    <section>
+      <h2>Saved profiles</h2>
+      <ul id="profile-list"></ul>
+    </section>
+
+    <section>
+      <h2>Book search (Open Library)</h2>
+      <form id="book-form">
+        <input id="book-title" type="text" placeholder="Book title" required>
+        <button type="submit">Search</button>
+      </form>
+      <p id="book-status" role="status"></p>
+      <ul id="book-results"></ul>
+    </section>
+  </main>
+  <script src="profile.js"></script>
+  <script src="books.js"></script>
+</body>
+</html>
